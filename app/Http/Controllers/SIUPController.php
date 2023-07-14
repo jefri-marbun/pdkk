@@ -72,7 +72,13 @@ class SIUPController extends SilatNGController
                     $this->data['sp_mig_resume_siup_alokasi'] = DB::select('call sp_mig_resume_siup_alokasi("218013/2023")');
                     $this->data['sp_mig_kapal_aktif'] = DB::select('CALL sp_mig_kapal_aktif(1,0,0,0)');
                     $this->data['sp_mig_alokasi_lama'] = DB::select('call sp_mig_alokasi_lama("6277")');
-                    $this->data['sp_sert_kuota_simpan'] = DB::select('call sp_sert_kuota_simpan(1,"JOVENBALI86@GMAIL.COM","1/2023")');
+
+
+                    $email = session('email');
+                    $results = DB::select('CALL sp_sert_kuota_simpan(1, ?, "1/2023")', [$email]);
+                    $this->data['sp_sert_kuota_simpan'] = $results;
+
+                    
                     
                     // START CONTROLLER AUTHOR JO //
 
@@ -122,7 +128,7 @@ class SIUPController extends SilatNGController
                    
                     // // END EDIT JO // 
                     
-                    dd($this->data['sp_sert_kuota_simpan']);
+                    // dd($this->data['sp_sert_kuota_simpan']);
 
                     return view('modules.siup.migrasi_pit.add', $this->data);
                     break;
@@ -305,4 +311,21 @@ public function submitForm(Request $request)
     // return $pdf->download('siup_report.pdf');
 }
 
+
+    public function simpan(Request $request)
+    {
+        // Retrieve the form input values
+        $param1 = $request->input('param1');
+        $param2 = $request->input('param2');
+        $param3 = $request->input('param3');
+
+        // Call the stored procedure
+        $results = DB::select('CALL sp_sert_kuota_simpan(?, ?, ?)', [$param1, $param2, $param3]);
+
+        // Perform any other necessary actions
+
+        return redirect()->route('sertifikat_pdf'); // Redirect to the sertifikat_pdf route
+    }
 }
+
+

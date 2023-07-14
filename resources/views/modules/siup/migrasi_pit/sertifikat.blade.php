@@ -154,15 +154,33 @@
                                     
                                 </tbody>
                             </table> 
-                            
-                            <a href="{{ route('sertifikat_pdf') }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('spSimpanForm').submit();">Simpan</a>
 
-                            <form id="spSimpanForm" action="{{ route('sertifikat_simpan') }}" method="POST" style="display: none;">
+                            @php
+                                $email = session('email');
+                            @endphp
+                            
+                            <a href="{{ route('sertifikat_pdf') }}" class="btn btn-primary" onclick="event.preventDefault(); submitForm();">Simpan</a>
+
+                            <form id="spSimpanForm" action="{{ route('sertifikat_pdf') }}" method="POST" style="display: none;">
                                 @csrf
                                 <input type="hidden" name="param1" value="1">
-                                <input type="hidden" name="param2" value="JOVENBALI86@GMAIL.COM">
+                                <input type="hidden" name="param2" value="{{ $email }}">
                                 <input type="hidden" name="param3" value="1/2023">
                             </form>
+
+                            <script>
+                                function submitForm() {
+                                    // Submit the form
+                                    document.getElementById('spSimpanForm').submit();
+
+                                    // Display "Tersimpan" message
+                                    alert('Tersimpan');
+
+                                    // Redirect to the specified route
+                                    window.location.href = "{{ route('sertifikat_pdf') }}";
+                                }
+                            </script>
+
                                                                           
             </div>
 
