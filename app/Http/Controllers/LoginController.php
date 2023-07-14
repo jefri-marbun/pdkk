@@ -45,6 +45,8 @@ class LoginController extends SilatNGController
         $username = $request->input('username');
         $password = $request->input('password');
         $captchacode = $request->input('captchacode');
+
+        // $this->data['mig_trs_session_pengusaha'] = DB::select('CALL mig_trs_session_pengusaha(1)');
         $r = $request->input('r');
 
         // Login Log
@@ -54,7 +56,7 @@ class LoginController extends SilatNGController
         $loginLogData->save();
 
         // $idlogin=$loginLogData->id;
-        // dd($idlogin);
+        // dd($this->data['mig_trs_session_pengusaha']);
         if ($r !== null) {
             return Redirect($r);
         } else {
@@ -64,7 +66,7 @@ class LoginController extends SilatNGController
             Session::put('some_key', 'some_value');
             Session::put('email', $username);
             Session::put('id',$loginLogData);
-            return Redirect('/siup/migrasi-pit/')->with('session_data', session()->all());         }
+            return Redirect('/migrasi-pit/menu')->with('session_data', session()->all());         }
     }
     //session 
     

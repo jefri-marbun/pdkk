@@ -32,7 +32,7 @@
 		<link rel="stylesheet" href="{{ URL::asset('resources/assets/css/style.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('resources/assets/css/responsive.css') }}">
         <style>
-            @media only screen and (min-width: 1320px) and (max-width: 1550px) {
+            @media only screen and (min-width: 1000px) and (max-width: 1000px) {
                 body {
                     overflow: hidden;
                 }
@@ -55,11 +55,11 @@
                         <div class="account-content">
                             <div class="account-header">
                                 <a href="index.html">
-                                    <img src="{{ URL::asset('resources/assets/images/login.png') }}" alt="main-logo" style="max-width:150px;">
+                                    <img src="{{ URL::asset('resources/assets/images/login.png') }}" alt="main-logo" style="max-width:75px;">
                                 </a>
                             </div>
-
-                            <form id="loginForm" class="account-wrap" action="do_login" method="POST">
+        
+                            <form id="loginForm" class="account-wrap" action="do_login" method="POST" style="max-width: 300px; margin: 0 auto;">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="r" value="{{ \Request::get('r') }}">
                                 <div class="form-group mb-24 icon">
@@ -81,7 +81,6 @@
                                     <button id="login" class="default-btn">Masuk</button>
                                 </div>
                                 <div class="form-group mb-20 text-center">
-                                    {{-- <p class="account">&copy; {!! date('Y') !!}, SISTEM INFORMASI IZIN LAYANAN CEPAT</p> --}}
                                     <p class="account">&copy; {!! date('Y') !!} SILAT <sup>NG</sup> ( SISTEM INFORMASI IZIN LAYANAN CEPAT )</p>
                                     <p style="font-size: 9px;">
                                         Hak Cipta Oleh Direktorat Perizinan dan Kenelayanan | Direktorat Jenderal Perikanan Tangkap | Kementerian Kelautan dan Perikanan
@@ -95,6 +94,9 @@
                 </div>
             </div>
         </div>
+        
+        
+        
         <!-- End Account Area -->
 
 		<!-- Start Go Top Area -->

@@ -108,233 +108,691 @@
 
 
 </html> --}}
+{{-- <html>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> --}}
 
-<html>
-<head>
-    <style>
-    body {
-        font-family: sans-serif;
-        font-size: 10pt;
-    }
+<div class="page-content container">
+    <div class="page-header text-blue-d2">
+        <center>
+            <img src="{{ asset('public/images/kkp_img.png') }}" alt="Deskripsi Gambar" width="200" height="120">
+            <h4 class="page-title text-secondary-d1">
+                LOG BOOK, PENILAIAN KELAYAKAN RENCANA USAHA DAN PERSETUJUAN ALOKASI
+            </h4>
+        </center>
+    </div>
+</div>
 
-    p {
-        margin: 0pt;
-    }
 
-    table.items {
-        border: 0.1mm solid #e7e7e7;
-    }
 
-    td {
-        vertical-align: top;
-    }
+                <!-- .row -->
 
-    .items td {
-        border-left: 0.1mm solid #e7e7e7;
-        border-right: 0.1mm solid #e7e7e7;
-    }
+                <hr class="row brc-default-l1 mx-n1 mb-4" />
 
-    table thead td {
-        text-align: center;
-        border: 0.1mm solid #e7e7e7;
-    }
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div>
+                            <h5>A. DATA PERUSAHAAN / PERORANGAN</h5>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 50%;">
+                                        @foreach ($sp_mig_resume_siup as $data)
+                                            <div>
+                                                <span>
+                                                    <font size="2">1. Nama Pemohon :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nama_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">2. Alamat :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->alamat_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">3. Penanggung Jawab :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->penanggung_jawab }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">4. Surat Permohonan :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nomor_permohonan }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">5. Tgl Permohonan :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->tanggal_permohonan }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">6. Tgl Penerimaan :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->tanggal_tanda_terima }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">7. Nomor Identitas :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nomor_identitas }}</font>
+                                                </span>
+                                            </div>
+                                        @endforeach
+                                        @foreach ($sp_mig_nomor_agenda_baru as $data)
+                                            <div>
+                                                <span>
+                                                    <font size="2">8. Nama Pemilik :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nama_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">9. Alamat Pemilik :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->alamat_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">10. Nama Negara :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nama_negara }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">11. RT :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->rt_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">12. RW :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->tanggal_permohonan }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">13. Desa/Kelurahan :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->desa }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">14. Provinsi :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nama_propinsi }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">15. Kabupaten :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nama_kabupaten }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">16. Kecamatan :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->kecamatan }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">17. NPWP Pemilik :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->npwp_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">18. E-mail :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->email_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">19. Nomor NIB :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->nomor_nib }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">20. Website :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->website_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                        @endforeach
 
-    .items td.blanktotal {
-        background-color: #EEEEEE;
-        border: 0.1mm solid #e7e7e7;
-        background-color: #FFFFFF;
-        border: 0mm none #e7e7e7;
-        border-top: 0.1mm solid #e7e7e7;
-        border-right: 0.1mm solid #e7e7e7;
-    }
+                                    </td>
+                                    <td style="width: 50%;">
+                                        @foreach ($sp_mig_resume_siup as $data)
+                                            <div>
+                                                <span>
+                                                    <font size="2">21. Status Usaha :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->no_siup_sebelum }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">22. NPWP :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->npwp_pemilik }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">23. Jenis Kegiatan :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->jenis_kegiatan }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">24. No Telp./Fax :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->telepon_fax }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">25. Pengurus/No. Hp :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->hp_pengurus }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">26. No SIUP :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->no_siup }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">27. Tgl SIUP Pertama :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->no_siup_pertama }}</font>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <font size="2">28. Tgl SIUP Sebelumnya :</font>
+                                                </span>
+                                                <span>
+                                                    <font size="2">{{ $data->no_siup_sebelum }}</font>
+                                                </span>
+                                            </div>
+                                        @endforeach
+                                        @foreach ($sp_mig_nomor_agenda_baru as $data)
+                                        <div>
+                                            <span>
+                                                <font size="2">28. Telepon 1 :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->telepon1_pemilik }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">29. Telepon 2 :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->telepon2_pemilik }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">30. Telepon Genggam :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->handphone_pemilik }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">31. Faksmili :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->kode_faksimili1 }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">32. Badan Hukum :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->nama_badan_hukum }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">33. Kategori Pemohon :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->kode_faksimili1 }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">34. KTP :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->nomor_identitas }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">35. Akte Pendirian :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->akte_pendirian }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">36. Tanggal Akte Pendirian :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->tanggal_akte_pendirian }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">37. Status Perusahaan :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->status_perikanan }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">38. Bantuan Pemerintah :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->bantuan_pemerintah }}</font>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <font size="2">39. Status Terpadu :</font>
+                                            </span>
+                                            <span>
+                                                <font size="2">{{ $data->status_terpadu }}</font>
+                                            </span>
+                                        </div>
+                                    @endforeach
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                            
+                            
+                        </div>
+                        </div>
+                        
+                        <head>
+                        </head>
+                        <head>
+                            <style>
+                                table {
+                                    border-collapse: collapse;
+                                    width: 100%;
+                                }
+                                
+                                th, td {
+                                    text-align: left;
+                                    padding: 8px;
+                                    border-bottom: 1px solid #ddd;
+                                }
+                                
+                                th {
+                                    background-color: #f2f2f2;
+                                }
+                            </style>
+                            </head>
 
-    .items td.totals {
-        text-align: right;
-        border: 0.1mm solid #e7e7e7;
-    }
+                            {{-- // start permohonan alokasi :siup baru // --}}
 
-    .items td.cost {
-        text-align: "."center;
-    }
-    </style>
-</head>
+                            <body>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <h5>B. PERMOHONAN ALOKASI : SIUP BARU</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <table border="1">
+                                    <thead>
+                                        <tr>
+                                            <th>Keterangan</th>
+                                            <th>Ukuran Kapal</th>
+                                            <th>Jumlah Persetujuan</th>
+                                            <th>Zona PIT</th>
+                                            <th>WPP</th>
+                                            {{-- <th>DPI</th> --}}
+                                            <th>Pangkalan</th>
+                                            <th>Muat</th>
+                                            <th>Kuota Prod</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($sp_mig_resume_siup_alokasi as $data)
+                                        <tr>
+                                            <td>{{ $data->keterangan }}</td>
+                                            <td>{{ $data->ukuran_kapal }}</td>
+                                            <td>{{ $data->jumlah_persetujuan }}</td>
+                                            <td>{{ $data->zona_pit }}</td>
+                                            <td>{{ $data->wpp }}</td>
+                                            {{-- <td>{{ $data->dpi }}</td> --}}
+                                            <td>{{ $data->pangkalan }}</td>
+                                            <td>{{ $data->muat }}</td>
+                                            <td>{{ $data->kuota_prod }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </body>
 
-<body>
-    <table width="100%" style="font-family: sans-serif;" cellpadding="10">
-        <tr>
-            <td width="100%" style="padding: 0px; text-align: center;">
-              <a href="#" target="_blank"><img src="https://shezannj.com/wp-content/uploads/2019/01/dummy-logo-png-7.png" width="264" height="110" alt="Logo" align="center" border="0"></a>
-            </td>
-        </tr>
-        <tr>
-            <td width="100%" style="text-align: center; font-size: 20px; font-weight: bold; padding: 0px;">
-              INVOICE
-            </td>
-        </tr>
-        <tr>
-          <td height="10" style="font-size: 0px; line-height: 10px; height: 10px; padding: 0px;">&nbsp;</td>
-        </tr>
-    </table>
-    <table width="100%" style="font-family: sans-serif;" cellpadding="10">
-        <tr>
-            <td width="49%" style="border: 0.1mm solid #eee;">Name<br>Company Name<br>Area<br>Area 2<br>Kent<br>0123 6NN</td>
-            <td width="2%">&nbsp;</td>
-            <td width="49%" style="border: 0.1mm solid #eee; text-align: right;"><strong>Company Name Ltd</strong><br>00-00 ABC Aare<br>Country Name<br>123 456<br><br><strong>Telephone:</strong> +00 000 000 0000<br><a href="#" target="_blank" style="color: #000; text-decoration: none;">companyname.com</a><br><a href="#" target="_blank" style="color: #000; text-decoration: none;">companyname.com</a><br><a href="#" target="_blank" style="color: #000; text-decoration: none;">companyname.com</a><br><a href="#" target="_blank" style="color: #000; text-decoration: none;">companyname.com</a><br></td>
-        </tr>
-    </table>
-    <br>
-    <table width="100%" style="font-family: sans-serif; font-size: 14px;" >
-        <tr>
-            <td>
-                <table width="60%" align="left" style="font-family: sans-serif; font-size: 14px;" >
-                    <tr>
-                        <td style="padding: 0px; line-height: 20px;">&nbsp;</td>
-                    </tr>
-                </table>
-                <table width="40%" align="right" style="font-family: sans-serif; font-size: 14px;" >
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Booking Reference</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">XXXXXXXX</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Lead Passenger</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">Pessenger Name</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Invoice Date</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">XX/XX/XXXX</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Balance Due Date</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">XX/XX/XXXX</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Departure Date</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">XX/XX/XXXX</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <br>
-    <table class="items" width="100%" style="font-size: 14px; border-collapse: collapse;" cellpadding="8">
-        <thead>
-            <tr>
-                <td width="15%" style="text-align: left;"><strong>PAX</strong></td>
-                <td width="45%" style="text-align: left;"><strong>Description</strong></td>
-                <td width="20%" style="text-align: left;"><strong>Amount</strong></td>
-                <td width="20%" style="text-align: left;"><strong>Total Trip Cost</strong></td>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- ITEMS HERE -->
-            <tr>
-                <td style="padding: 0px 7px; line-height: 20px;"></td>
-                <td style="padding: 0px 7px; line-height: 20px;">Split to Dubrovnik Luxury Cruise on Mama Marija</td>
-                <td style="padding: 0px 7px; line-height: 20px;"></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td style="padding: 0px 7px; line-height: 20px;">
-                    <br>
-                </td>
-                <td style="padding: 0px 7px; line-height: 20px;">
-                    <br>
-                </td>
-                <td style="padding: 0px 7px; line-height: 20px;">
-                    <br>
-                </td>
-                <td style="padding: 0px 7px; line-height: 20px;">
-                    <br>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding: 0px 7px; line-height: 20px;">2</td>
-                <td style="padding: 0px 7px; line-height: 20px;">VIP cabin with Private Balcony</td>
-                <td style="padding: 0px 7px; line-height: 20px;">£1,295.00</td>
-                <td style="padding: 0px 7px; line-height: 20px;">£2,590.00</td>
-            </tr>
-            <tr>
-                <td style="padding: 0px 7px; line-height: 20px;">2</td>
-                <td style="padding: 0px 7px; line-height: 20px;">Lower deck cabin</td>
-                <td style="padding: 0px 7px; line-height: 20px;">£000.00</td>
-                <td style="padding: 0px 7px; line-height: 20px;">£000.00</td>
-            </tr>
-            <tr>
-                <td style="padding: 0px 7px; line-height: 20px;">2</td>
-                <td style="padding: 0px 7px; line-height: 20px;">EasyJet extra legroom seats</td>
-                <td style="padding: 0px 7px; line-height: 20px;">£000.00</td>
-                <td style="padding: 0px 7px; line-height: 20px;">£000.00</td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <table width="100%" style="font-family: sans-serif; font-size: 14px;" >
-        <tr>
-            <td>
-                <table width="60%" align="left" style="font-family: sans-serif; font-size: 14px;" >
-                    <tr>
-                        <td style="padding: 0px; line-height: 20px;">&nbsp;</td>
-                    </tr>
-                </table>
-                <table width="40%" align="right" style="font-family: sans-serif; font-size: 14px;" >
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Total Amount</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">£000.00</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Deposit</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">£000.00</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Commission</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">£000.00</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;"><strong>Remaining Balance</strong></td>
-                        <td style="border: 1px #eee solid; padding: 0px 8px; line-height: 20px;">Remaining Balance</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <br>
-    <table width="100%" style="font-family: sans-serif; font-size: 14px;" >
-        <br>
-        <tr>
-            <td>
-                <table width="25%" align="left" style="font-family: sans-serif; font-size: 14px;" >
-                    <tr>
-                        <td style="padding: 0px; line-height: 20px;">
-                            <img src="img/protected.png" alt="protected" style="display: block; margin: auto;">
-                        </td>
-                    </tr>
-                </table>
-                <table width="50%" align="left" style="font-family: sans-serif; font-size: 13px; text-align: center;" >
-                    <tr>
-                        <td style="padding: 0px; line-height: 20px;">
-                            <strong>Company Name</strong>
-                            <br>
-                            ABC AREA
-                            <br>
-                            Tel: +00 000 000 0000 | Email: info@companyname.com
-                            <br>
-                            Company Registered in Country Name. Company Reg. 12121212.
-                            <br>
-                            VAT Registration No. 021021021 | ATOL No. 1234
-                        </td>
-                    </tr>
-                </table>
-                <table width="25%" align="right" style="font-family: sans-serif; font-size: 14px;" >
-                    <tr>
-                        <td style="padding: 0px; line-height: 20px;">
-                            <img src="img/abtot.png" alt="abtot" style="display: block; margin: auto;">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <br>
-    </table>
-</body>
-</html>
+                            {{-- // C. Alokasi Siup Lama // --}}
+                            
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>C. ALOKASI SIUP LAMA</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID Alokasi</th>
+                                                    <th>Nomor Izin</th>
+                                                    <th>Keterangan</th>
+                                                    <th>Ukuran Kapal</th>
+                                                    {{-- <th>Jumlah</th> --}}
+                                                    {{-- <th>ID Ukuran</th> --}}
+                                                    {{-- <th>Operasi Laut</th> --}}
+                                                    <th>Status Armada</th>
+                                                    <th>Daerah Terlarang</th>
+                                                    <th>Pangkalan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($sp_mig_alokasi_lama as $data)
+                                                <tr>
+                                                    <td>{{ $data->id_alokasi_izin_usaha }}</td>
+                                                    <td>{{ $data->nomor_izin_usaha }}</td>
+                                                    <td>{{ $data->keterangan }}</td>
+                                                    <td>{{ $data->ukuran_kapal }}</td>
+                                                    {{-- <td>{{ $data->jumlah_persetujuan }}</td> --}}
+                                                    {{-- <td>{{ $data->id_ukuran_kapal }}</td> --}}
+                                                    {{-- <td>{{ $data->operasi_laut_lepas }}</td> --}}
+                                                    <td>{{ $data->status_armada }}</td>
+                                                    <td>{{ $data->daerah_terlarang }}</td>
+                                                    <td>{{ $data->pangkalan }}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                             
+                            {{-- // end alokasi siup lama // --}}
+
+                            <body>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <h5>D. REKOMENDASI PERSETUJUAN ALOKASI</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <table border="1">
+                                    <thead>
+                                        <tr>
+                                            <th>Keterangan</th>
+                                            <th>Ukuran Kapal</th>
+                                            <th>Jumlah Persetujuan</th>
+                                            <th>Zona PIT</th>
+                                            <th>WPP</th>
+                                            {{-- <th>DPI</th> --}}
+                                            <th>Pangkalan</th>
+                                            <th>Muat</th>
+                                            <th>Kuota Prod</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($sp_mig_resume_siup_alokasi as $data)
+                                        <tr>
+                                            <td>{{ $data->keterangan }}</td>
+                                            <td>{{ $data->ukuran_kapal }}</td>
+                                            <td>{{ $data->jumlah_persetujuan }}</td>
+                                            <td>{{ $data->zona_pit }}</td>
+                                            <td>{{ $data->wpp }}</td>
+                                            {{-- <td>{{ $data->dpi }}</td> --}}
+                                            <td>{{ $data->pangkalan }}</td>
+                                            <td>{{ $data->muat }}</td>
+                                            <td>{{ $data->kuota_prod }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </body>
+                            
+                            <body>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <h5>Foto Diri</h5>
+                                            <img src="{{ asset('resources/assets/images/pemilik/6277.jpg') }}" style="width: 150px" class="img-thumbnail" alt="blog-1">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+
+                            {{-- // end permohonan alokasi siup baru // --}}
+                            
+                                    {{-- <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 50%;">
+                                                @foreach ($sp_mig_resume_siup as $data)
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">1. Nama Pemohon :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->nama_pemilik }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">2. Alamat :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->alamat_pemilik }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">3. Penanggung Jawab :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->penanggung_jawab }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">4. Surat Permohonan :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->nomor_permohonan }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">5. Tgl Permohonan :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->tanggal_permohonan }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">6. Tgl Penerimaan :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->tanggal_tanda_terima }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">7. Nomor Identitas :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->nomor_identitas }}</font>
+                                                        </span>
+                                                    </div>
+                                                @endforeach
+                                            </td>
+                                            <td style="width: 50%;">
+                                                @foreach ($sp_mig_resume_siup as $data)
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">8. Status Usaha :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->no_siup_sebelum }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">9. NPWP :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->npwp_pemilik }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">10. Jenis Kegiatan :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->jenis_kegiatan }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">11. No Telp./Fax :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->telepon_fax }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">12. Pengurus/No. Hp :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->hp_pengurus }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">13. No SIUP :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->no_siup }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">14. Tgl SIUP Pertama :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->no_siup_pertama }}</font>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            <font size="2">15. Tgl SIUP Sebelumnya :</font>
+                                                        </span>
+                                                        <span>
+                                                            <font size="2">{{ $data->no_siup_sebelum }}</font>
+                                                        </span>
+                                                    </div>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                 --}}
+                    <!-- /.col -->
+
+                    <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
+                        <hr class="d-sm-none" />
+                        <div class="text-grey-m2">
+                            {{-- <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+                                Invoice
+                            </div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> #111-222</div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span> Oct 12, 2019</div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Unpaid</span></div> --}}
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

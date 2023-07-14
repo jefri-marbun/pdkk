@@ -125,7 +125,7 @@ img {
 	border: 1px solid #F1F5FF;
 	background-color: #F1F5FF;
 	border-radius: 10px;
-	font-size: 14px;
+	font-size: 10px;
 	padding: 10px 20px;
 	width: 100%;
 	transition: $transition;
@@ -2170,19 +2170,20 @@ Performance Date Style
 AccountStyle
 =====================================================*/
 .account-area {
-	background-image: url(../../assets/images/silatng-background.jpg);
+	
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
 }
 .account-content {
-	max-width: 510px;
+	max-width: 500px;
 	margin: auto;
 	background-color: $white-color;
 	border-radius: 30px;
 	padding: 50px;
 }
+
 .account-header {
 	text-align: center;
 	img {
@@ -2310,7 +2311,7 @@ Chat CSS
                         transition: $transition;
                         box-shadow: unset;
                         font: {
-                            size: 14px;
+                            size: 10px;
                             weight: 400;
                         };
                         &:focus {
@@ -6419,3 +6420,4 @@ Page-navigation Area Style*/
 	fill: #BCC2CF;
 	font-size: 12px;
 }
+

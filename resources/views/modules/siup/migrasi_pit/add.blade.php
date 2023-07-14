@@ -51,7 +51,7 @@
 
                 <div class="col-md-6">
                     <label for="idIzinOSS" class="form-label">ID Izin OSS</label>
-                    <input name="idIzinOSS" type="text" class="form-control" id="idIzinOSS">
+                    <input name="idIzinOSS" type="text" class="form-control" value="P02-201912300448488879340" id="idIzinOSS">
                 </div>
                 @endforeach
 
@@ -186,12 +186,12 @@
                 </div>
                 <div class="col-md-4">
                     <label for="idIzinOSS" class="form-label">ID Izin OSS</label>
-                    <input name="idIzinOSS" type="text" class="form-control" id="idIzinOSS" value="I-202303241542147266740">
+                    <input name="idIzinOSS" type="text" class="form-control" id="idIzinOSS" value="I-202306101712592955356">
                 </div>
 
                 <div class="col-md-4">
                     <label for="idProyekOSS" class="form-label">ID Proyek OSS</label>
-                    <input name="idProyekOSS" type="text" class="form-control" id="idProyekOSS" value="R-202209281801371454644">
+                    <input name="idProyekOSS" type="text" class="form-control" id="idProyekOSS" value="R-202306101708559289970">
                 </div>
                 
         <!-- Start Tab Menu -->
@@ -544,8 +544,8 @@
                                                 <!-- ... Bagian form lainnya ... -->
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                             </form>
-                                            <a href="{{ route ('siup_migrasi_pdf') }}"class="btn btn-primary">print pdf</a>
-                                                <br>
+                                            {{-- <a href="{{ route ('siup_migrasi_pdf') }}"class="btn btn-primary">print pdf</a>
+                                                <br> --}}
                                       
                                             {{-- <button type="submit" class="btn btn-primary">Simpan</button> --}}
                                         </div>
@@ -576,6 +576,8 @@
                                     Dokumen Persyaratan
                                 </button>
                             </h2>
+
+
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <table class="table table-bordered mt-4">
@@ -587,7 +589,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr class="d-none">
                                                 <th scope="row">1</th>
                                                 <td>Surat Permohonan</td>
                                                 <td>
@@ -599,13 +601,43 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">2</th>
-                                                <td>NIB dan Izin Usaha OSS</td>
+                                                <th scope="row">1</th>
+                                                <td>NIB</td>
                                                 <td>
-                                                    <img src="{{ URL::asset('resources/assets/images/blog/blog-2.jpg') }}" style="width: 200px" class="img-thumbnail" alt="blog-1">
+                                                   
+                                                    <form action="/upload-file" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="row mt-4 mb-3 text-center" >
+                                                        <div class="col-sm-4">
+                                                                <img src="{{ asset('resources/assets/images/pemilik/6277.jpg') }}" style="width: 150px" class="img-thumbnail" alt="blog-1">
+                                                                <input class="mt-3" type="file" id="fotoPemilik" name="fotoPemilik">
+                                                            </div>
+                                                        </div>
+                                        
+
                                                 </td>
                                             </tr>
+
                                             <tr>
+                                                <th scope="row">2</th>
+                                                <td>Izin Usaha OSS</td>
+                                                <td>
+                                                   
+                                                    <form action="/upload-file" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="row mt-4 mb-3 text-center" >
+                                                        <div class="col-sm-4">
+                                                                <img src="{{ asset('resources/assets/images/pemilik/6277.jpg') }}" style="width: 150px" class="img-thumbnail" alt="blog-1">
+                                                                <input class="mt-3" type="file" id="fotoPemilik" name="fotoPemilik">
+                                                            </div>
+                                                        </div>
+                                        
+
+                                                </td>
+                                            </tr>
+
+
+                                            <tr class="d-none">
                                                 <th scope="row">3</th>
                                                 <td>Rencana Kegiatan Usaha</td>
                                                 <td>
@@ -616,7 +648,7 @@
                                                     <img src="{{ URL::asset('resources/assets/images/blog/blog-2.jpg') }}" style="width: 200px" class="img-thumbnail" alt="blog-1">
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr class="d-none">
                                                 <th scope="row">4</th>
                                                 <td>Alokasi - Realisasi SIUP</td>
                                                 <td>
@@ -628,7 +660,7 @@
                                                     <img src="{{ URL::asset('resources/assets/images/blog/blog-2.jpg') }}" style="width: 200px" class="img-thumbnail" alt="blog-1">
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr class="d-none">
                                                 <th scope="row">5</th>
                                                 <td>Syarat Pendukung</td>
                                                 <td>
@@ -645,7 +677,7 @@
                                                     <img src="{{ URL::asset('resources/assets/images/blog/blog-2.jpg') }}" style="width: 200px" class="img-thumbnail" alt="blog-1">
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr class="d-none">
                                                 <th scope="row">6</th>
                                                 <td>Surat pernyataan penangkapan ikan terukur</td>
                                                 <td>
@@ -657,6 +689,9 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -671,21 +706,24 @@
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <form>
+                                    <form action="/upload-file" method="POST" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="row mt-4 mb-3">
                                             <label for="fotoPemilik" class="col-sm-8 col-form-label">Foto Pemilik ( <span style="color: red; font-style: italic;">Foto orang perseorangan atau penanggung jawab Korporasi terbaru berwarna berukuran 4 x 6 cm berlatar belakang merah</span> )</label>
                                             <div class="col-sm-4">
-                                                <img src="{{ URL::asset('resources/assets/images/blog/blog-2.jpg') }}" style="width: 500px" class="img-thumbnail" alt="blog-1">
-                                                <input class="mt-3" type="file" id="fotoPemilik">
+                                                <img src="{{ asset('resources/assets/images/pemilik/6277.jpg') }}" style="width: 400px" class="img-thumbnail" alt="blog-1">
+                                                <input class="mt-3" type="file" id="fotoPemilik" name="fotoPemilik">
                                             </div>
                                         </div>
+                        
                                         <div class="row mt-4 mb-3">
                                             <label for="ttdPemilik" class="col-sm-8 col-form-label">Tanda Tangan Pemilik</label>
                                             <div class="col-sm-4">
-                                                <img src="{{ URL::asset('resources/assets/images/blog/blog-2.jpg') }}" style="width: 500px" class="img-thumbnail" alt="blog-1">
-                                                <input class="mt-3" type="file" id="ttdPemilik">
+                                                <img id="previewImage" src="{{ asset('resources/assets/images/pemilik/t6277.jpg') }}" style="width: 500px" class="img-thumbnail" alt="blog-1">
+                                                <input class="mt-3" type="file" id="ttdPemilik" onchange="previewFile()" name="ttdPemilik">
                                             </div>
                                         </div>
+                        
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
@@ -693,8 +731,9 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <!-- End Foto & Tanda Tangan -->
- <!--  End Author Jefri -->        
+                 <!--  End Author Jefri -->        
 
                         <!-- Start Alokasi -->
                         <div class="accordion-item">
@@ -733,7 +772,7 @@
                                         </tbody>
                                     </table>
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary">Realisasi</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>
 
                                     <div class="accordion mt-4" id="accordionExample2">
@@ -743,13 +782,13 @@
                                                     Permohonan Alokasi
                                                 </button>
                                             </h2>
-                                            <div id="collapseFivePointOne" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
+                                            <div id="collapseFivePointOne" class="accordion-collapse collapse show d-none" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
                                                 <div class="accordion-body">
                                                     <p>Tidak ada data.</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="accordion-item">
+                                        <div class="accordion-item d-none">
                                             <h2 class="accordion-header" id="headingTwo">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFivePointTwo" aria-expanded="false" aria-controls="collapseFivePointTwo">
                                                     Persetujuan Alokasi
@@ -1035,23 +1074,66 @@
                                         </div>
                                     </div>
 
+                                   <!-- Start Data Alokasi SIUP Sebelumnya -->
+                                   <div class="others-title mt-3">
+                                    <h3>Data Alokasi SIUP Sebelumnya</h3>
+                                    <style>
+                                        th {
+                                          text-align: center;
+                                        }
+                                        .header {
+                                          text-align: center;
+                                          font-weight: bold;
+                                        }
+                                      </style>
+                                            </div>
+                                                <table class="table table-bordered mt-4">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">No.</th>                                                                
+                                                            <th scope="col">Jenis Sub Alat Tangkap</th>                                                                
+                                                            <th scope="col">Ukuran Kapal</th>
+                                                            <th scope="col">Diajukan - Disetujui</th>
+                                                            <th scope="col">Operasi Laut Lepas</th>
+                                                            <th scope="col">Armada /Tunggal</th>
+                                                            <th scope="col">Daerah Penangkapan</th>
+                                                            <th scope="col">Daerah Terlarang</th>
+                                                            <th scope="col">Pangkalan</th>
+                                                            <th scope="col">Muat</th>
+                                                            <th scope="col">Pelabuhan Negara Tujuan</th>
+                                                          </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach ($sp_mig_alokasi_lama as $data)
+                                                        <tr>
+                                                        
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $data->keterangan }}</td>
+                                                            <td>{{ $data->ukuran_kapal }}</td>
+                                                            <td class="text-center">{{ $data->jumlah_persetujuan }}</td>
+                                                            <td>{{ $data->operasi_laut_lepas }}</td>
+                                                            <td>{{ $data->status_armada }}</td>
+                                                            <td>{{ $data->dpi }}</td>
+                                                            <td>{{ $data->daerah_terlarang }}</td>
+                                                            <td>{{ $data->pangkalan }}</td>
+                                                            <td>{{ $data->muat }}</td>
+                                                            <td>{{ $data->tujuan }}</td>
+                                                        @endforeach
+                                                        </tr>
+                                                    </tbody>
+                                                </table>                                                    
+                                </div>
+                                <!-- End Data Alokasi SIUP Sebelumnya -->
+                                    
+                                    <!-- Start Data Alokasi SIUP Diajukan -->
                                     <div class="others-title mt-3">
-                                        <h3>Data Alokasi SIUP Sebelumnya</h3>
-                                        <style>
-                                            th {
-                                              text-align: center;
-                                            }
-                                            .header {
-                                              text-align: center;
-                                              font-weight: bold;
-                                            }
-                                          </style>
+                                        <h3>Data Alokasi SIUP Diajukan</h3>
                                                 </div>
                                                     <table class="table table-bordered mt-4">
                                                         <thead>
                                                             <tr>
+                                                            <!-- 
                                                                 <th scope="col">No.</th>
-                                                                <th scope="col">Aksi</th>
                                                                 <th scope="col">Jenis Alat Tangkap</th>
                                                                 <th scope="col">KBLI</th>
                                                                 <th scope="col">Ukuran Kapal</th>
@@ -1061,101 +1143,156 @@
                                                                 <th scope="col">Daerah Terlarang</th>
                                                                 <th scope="col">Pangkalan</th>
                                                                 <th scope="col">Muat</th>
-                                                                <th scope="col">Pelabuhan Negara Tujuan</th>
-                                                              </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <p>
-                                                        Total Alokasi Unit = 4<br/>
-                                                        Total GT Alokasi = 550
-                                                    </p>
-                                    </div>
-                                    
-                                    <!-- BY JO -->
-                                    <div class="others-title mt-3">
-                                        <h3>Data Alokasi SIUP Diajukan</h3>
-                                                </div>
-                                                    <table class="table table-bordered mt-4">
-                                                        <thead>
-                                                            <tr>
+                                                                <th scope="col">Pelabuhan Negara Tujuan</th> 
+                                                            -->
                                                                 <th scope="col">No.</th>
-                                                                <th scope="col">ALAT TANGKAP</th>
-                                                                <th scope="col">Range GT</th>
-                                                                <th scope="col">Jml Alokasi</th>
-                                                                <th scope="col">Zona Pit</th>
+                                                                <th scope="col">Isi Data</th>
+                                                                <th scope="col d-none">Id Alokasi</th>
+                                                                <th scope="col">Alat Tangkap</th>
+                                                                <th scope="col">Ukuran Kapal</th>
+                                                                <th scope="col">Alokasi</th>
+                                                                <th scope="col">Zona PIT</th>
                                                                 <th scope="col">WPP</th>
-                                                                <th scope="col">KOEF PROD</th>
-                                                                <th scope="col">PELABUHAN</th>
-                                                                <th scope="col">KUOTA PRODUKTIVITAS</th>
-                                                                <th scope="col">NAMA KAPAL</th>
+                                                                <th scope="col">Koefisien Produksi</th>
+                                                                <th scope="col">Pangkalan</th>
+                                                                <th scope="col">Estimasi Produksi</th>
+                                                                <th scope="col">Nama Kapal</th>
                                                             </tr>
-
                                                         </thead>
 
                                                         <tbody>
                                                             @foreach ($sp_mig_split_alokasi as $data)
                                                             <tr>
-                                                            
                                                                 <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $data->keterangan }}</td>
-                                                                <td>{{ $data->ukuran }}</td>
-                                                                <td class="text-center">{{ $data->alokasi_baru}}</td>
-                                                            <td>
-                                                                <select name="zona_pit" id="zona_pit">
-                                                                    <option value="">Select Zona WPPNRI</option>
-                                                                    @foreach($sp_mig_zona_pit as $data)
-                                                                        <option value="{{ $data->id_wpp }}">{{ $data->zona_wppnri }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </td>
-                                                            <td>
-                                                                <select name="sub_wpp" id="sub_wpp" >
-                                                                    <option value="">Select Sub Category</option>
-                                                                    @foreach($sp_mig_zona_pit as $data)
-                                                                        <option value="{{ $data->id_wpp }}">{{ $data->no_wpp }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </td>
-                                                            @endforeach
-                                                           
-                                                            
-                                                                {{-- <td>{{ $item->armada_tunggal }}</td>
-                                                                <td>{{ $item->daerah_penangkapan }}</td>
-                                                                <td>{{ $item->daerah_terlarang }}</td>
-                                                                <td>{{ $item->pangkalan }}</td>
-                                                                <td>{{ $item->muat }}</td>
-                                                                <td>{{ $item->pelabuhan_negara_tujuan }}</td> --}}
-                                                            </tr>
-                                                         
-                                                        </tbody>
-                                                    </table>
-                                                    <p>
-                                                        Total Alokasi Unit = 4<br/>
-                                                        Total GT Alokasi = 550
-                                                    </p>
+                                                                
+                                                                <!-- Modal Form-->
+                                                               <!-- Button to trigger the modal -->
+                                                                <td>
+                                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-{{ $data->idalokasi }}">+</button>
+                                                                </td>
+                                                        
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal-{{ $data->idalokasi }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel-{{ $data->idalokasi }}" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modalLabel-{{ $data->idalokasi }}">Alokasi SIUP Diajukan</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                    
+                                                        
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('submitForm') }}" method="POST">
+                                                                @csrf
+                                                                <div class="mb-3">
+                                                                    <label for="idalokasi" class="col-form-label">Id Alokasi:</label>
+                                                                    <input name="idalokasi" type="text" class="form-control" value="{{ $data->idalokasi }}" id="idalokasi" disabled>
+                                                                    <input type="hidden" name="idalokasi" value="{{ $data->idalokasi }}">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="zona_pit" class="col-form-label">Zona PIT:</label>
+                                                                    <select class="form-control" name="zonaPit">
+                                                                        <option value="zona 1">Zona 1</option>
+                                                                        <option value="zona 2">Zona 2</option>
+                                                                        <option value="zona 3">Zona 3</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="wpp" class="col-form-label">WPP:</label>
+                                                                    <select class="form-control" name="wpp">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
-                        <!-- End Alokasi --> <!-- BY JO -->
+                                            </div>
 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    Realisasi Kapal
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Tidak ada data.</p>
+  
+  
+                                                                 <!-- End Modal Form-->
+                                                                <td>{{ $data->idalokasi }}</td>
+                                                                <td>{{ $data->keterangan }}</td>
+                                                                <td class="text-center">{{ $data->ukuran }}</td> 
+                                                                <td class="text-center">{{ $data->alokasiajukan }}</td>
+                                                                <td>{{ $data->zonapit }}</td>
+                                                                <td>{{ $data->wpp }}</td>
+                                                                <td>{{ $data->koefisien }}</td>
+                                                                <td>{{ $data->pangkalan }}</td>
+                                                                <td>{{ $data->kuota }}</td>                                   
+                                                                <td>{{ $data->namakapal }}</td>
+                                                            </tr>
+                                                            @endforeach 
+                                                        </tbody>
+                                                    </table>                                                   
+                                                    </div>
+                                    </div>
+                                    <!-- Start Data Alokasi SIUP Diajukan -->
+
+                                <!-- Start Realisasi Kapal --> <!-- BY JO -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                            Realisasi Kapal
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="others-title mt-3">
+                                                <h3>Data Realisasi Kapal</h3>
+                                                <style>
+                                                    th {
+                                                        text-align: center;
+                                                    }
+                                                    .header {
+                                                        text-align: center;
+                                                        font-weight: bold;
+                                                    }
+                                                </style>
+                                            </div>
+                                            <table class="table table-bordered mt-4">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">No.</th>
+                                                        <th scope="col">Nama Pemilik</th>
+                                                        <th scope="col">Nomor Izin Usaha</th>
+                                                        <th scope="col">Nama Kapal</th>
+                                                        <th scope="col">Nomor Izin</th>
+                                                        <th scope="col">Tanggal Terbit</th>
+                                                        <th scope="col">Keterangan</th>
+                                                        <th scope="col">Berat Kotor</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($sp_mig_realisasi_kapal as $data)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $data->nama_pemilik }}</td>
+                                                        <td>{{ $data->nomor_izin_usaha }}</td>
+                                                        <td>{{ $data->nama_kapal }}</td>
+                                                        <td>{{ $data->nomor_izin }}</td>
+                                                        <td>{{ $data->tanggal_terbit }}</td>
+                                                        <td>{{ $data->keterangan }}</td>
+                                                        <td>{{ $data->berat_kotor }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
+                                
+                            <!-- End Realisasi Kapal --> <!-- BY JO -->
                             </div>
-                        </div>
-    
-                        <div class="accordion-item">
+        
+                        <div class="accordion-item d-none">
                             <h2 class="accordion-header" id="headingSeven">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                                     Catatan Verifikasi	
@@ -1184,7 +1321,7 @@
                             </div>
                         </div>
 
-                        <div class="accordion-item">
+                        <div class="accordion-item d-none">
                             <h2 class="accordion-header" id="headingFourteen">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
                                     Alokasi Pertimbangan
@@ -1220,6 +1357,7 @@
                                                 <td>
                                                     <button type="button" class="btn btn-danger mb-1">Hapus</button>
                                                 </td>
+                                                
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1230,8 +1368,11 @@
                 </div>
                 <!-- End Tab Menu -->
             </form>
+            <a href="{{ route ('siup_migrasi_pdf') }}"class="btn btn-primary">Cetak Resume</a>
+    <br>
         </div>
     </div>
+    
 </div>
 <!-- End Form Layouts Area -->
 

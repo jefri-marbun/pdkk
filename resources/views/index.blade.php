@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="main-logo">
                                     {{-- <img src="{{ URL::asset('resources/assets/images/main-logo.svg') }}" alt="main-logo"> --}}
-                                    <h2 style="color: #1A237E;">SILAT <sup>NG</sup> ( SISTEM INFORMASI IZIN LAYANAN CEPAT )</h2>
+                                    <h2 style="color: #1A237E;">SILAT <sup>NG</sup> (SISTEM INFORMASI IZIN LAYANAN CEPAT)</h2>
                                 </div>
                             </div>
                             
@@ -228,7 +228,7 @@
                                     <a class="dropdown-item dropdown-toggle avatar d-flex align-items-center" href="#" id="navbarDropdown-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ URL::asset('resources/assets/images/avatar.png') }}" alt="avatar">
                                         <div class="d-none d-lg-block d-md-block">
-                                            <h3>Reza S Hamdani</h3>
+                                            <h3>Joven</h3>
                                             <span>Pengusaha</span>
                                         </div>
                                     </a>
@@ -240,11 +240,12 @@
                                             </div>
         
                                             <div class="info text-center">
-                                                <span class="name">Reza S Hamdani</span>
+                                                <span class="name">Joven</span>
                                                 <p class="mb-3 email">
-                                                    <a href="mailto:admin@mekanikit.com">admin@mekanikit.com</a>
+                                                    <a href="mailto:{{ session('email') }}">{{ session('email') }}</a>
                                                 </p>
                                             </div>
+                                            
                                         </div>
         
                                         <div class="dropdown-wrap">
@@ -347,7 +348,7 @@
                 <div class="footer-area">
                     <div class="container-fluid">
                         <div class="footer-content">
-                            <p>&copy; {!! date('Y') !!} SILAT <sup>NG</sup> ( SISTEM INFORMASI IZIN LAYANAN CEPAT )</p>
+                            <p>&copy; {!! date('Y') !!} SILAT <sup>NG</sup> (SISTEM INFORMASI IZIN LAYANAN CEPAT)</p>
                         </div>
                     </div>
                 </div>
